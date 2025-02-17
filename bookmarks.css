@@ -1,13 +1,57 @@
 body {
-  background-image: url(my-hero-academia-3840x2160-10366.jpg);
+  background-image: url(pain-naruto-indigo-3840x2160-10830.png);
   background-repeat: no-repeat;
   background-size: 1620px 1000px;
-  
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  text-decoration: underline;
-  opacity: 100px;
+:root {
+  --color: rgb(224, 13, 62);
+}
+
+.navbar {
+  font-size: 35px;
+  color: azure;
+  width: 1535px;
+  height: 78px;
+  margin-top: 5px;
+  margin-bottom: 0%;
+  border-bottom: 2px solid black;
+}
+
+.navbar #bookmark {
+  margin-left: 2vh;
+  margin-right: 66vw;
+  font-size: larger;
+}
+
+.navbox {
+  padding-top: 15px;
+  display: inline-block;
+}
+
+.navbox #bible {
+  margin-right: 25px;
+}
+
+.navbox #fonts {
+  margin-right: 25px;
+}
+
+.navbox #icons {
+  margin-right: 25px;
+}
+
+.navbox span img {
+  height: 35px;
+}
+
+.navbox img:hover {
+  background-color: var(--color);
+  border: 55px solid none;
+  border-radius: 9px;
+  box-shadow: 2px 2px 5px var(--color) inset;
 }
 
 * h3 {
@@ -27,8 +71,7 @@ ul li {
     "Lucida Sans Unicode", Verdana, sans-serif;
 }
 
-.box{
+.box {
   padding: 10px;
   display: inline-block;
-
 }
