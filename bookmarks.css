@@ -8,6 +8,7 @@ body {
 
 :root {
   --color: rgb(224, 13, 62);
+  --fontcolor: gold;
 }
 
 .navbar {
@@ -55,15 +56,19 @@ body {
 }
 
 * h3 {
-  color: gold;
+  color: var(--fontcolor) ;
 }
 
 * h2 {
-  color: red;
+  color: var(--color);
 }
 
-ul li {
+* ul li {
+  padding: 0;
+  margin: 0;
   list-style: none;
+  margin-right: 38px;
+  text-align: center;
 }
 
 * {
@@ -74,43 +79,58 @@ ul li {
 .info {
   margin-top: 95px;
   margin-bottom: 0;
-  padding: 15px;
+  padding-top: 5px;
   margin-left: 180px;
   position:sticky;
   display: inline-block;
   text-decoration: none;
   border-radius: 17px;
   background-color:#9973ad69;
+
 }
 
 .info h2{
   padding-top: 0;
   margin-top: 0;
-  text-align: center;
+ text-align: center;
 }
 
-.fun {
+
+div * {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
+.network {
   margin-top: 96px;
   margin-bottom: 0;
   padding: 15px;
   margin-right: 103px;
-  position:sticky;
   display: inline-block;
   text-decoration: none;
   background-color: #9973ad69;
   border-radius: 17px; 
   float: right;
-
 }
 
-div *{
-  padding-top: 0;
-  margin-top: 0;
+
+.fun {
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px;
+  padding-top: 5px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #9973ad69;
+  border-radius: 17px; 
+  position: sticky;
+
 }
 
 .fun h2{
   margin-top: 0;
   padding-top: 0;
   text-align: center;
-  
+
 }
