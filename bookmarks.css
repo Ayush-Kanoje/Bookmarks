@@ -1,134 +1,29 @@
-body {
-  background-image: url(pain-naruto-indigo-3840x2160-10830.png);
-  background-repeat: no-repeat;
-  background-size: 1620px 1000px;
+body{
   margin: 0;
   padding: 0;
+  background-color: rgb(32, 29, 29);
 }
 
-:root {
-  --color: rgb(224, 13, 62);
-  --fontcolor: gold;
+:root{
+    --font: "Poppins", sans-serif;
+    --bgcolor: #ffffff;
+    --fontmist: #DFE8E6;
 }
 
-.navbar {
-  font-size: 35px;
-  color: azure;
-  width: 1535px;
-  height: 78px;
-  margin-top: 5px;
-  margin-bottom: 0%;
-  border-bottom: 2px solid black;
+header .search-nav{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar #bookmark {
-  margin-left: 2vh;
-  margin-right: 66vw;
-  font-size: larger;
+.search-nav input{
+    height: 4vh;
+    width: 30vw;
+
 }
 
-.navbox {
-  padding-top: 15px;
-  display: inline-block;
-}
-
-.navbox #bible {
-  margin-right: 25px;
-}
-
-.navbox #fonts {
-  margin-right: 25px;
-}
-
-.navbox #icons {
-  margin-right: 25px;
-}
-
-.navbox span img {
-  height: 35px;
-}
-
-.navbox img:hover {
-  background-color: var(--color);
-  border: 55px solid none;
-  border-radius: 9px;
-  box-shadow: 2px 2px 5px var(--color) inset;
-}
-
-* h3 {
-  color: var(--fontcolor) ;
-}
-
-* h2 {
-  color: var(--color);
-}
-
-* ul li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  margin-right: 38px;
-  text-align: center;
-}
-
-* {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Verdana, sans-serif;
-}
-
-.info {
-  margin-top: 95px;
-  margin-bottom: 20px; /* Added margin-bottom to create space between .info and .fun */
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-left: 168px;
-  position: relative;
-  display: block; /* Changed from inline-block to block */
-  text-decoration: none;
-  border-radius: 17px;
-  background-color: #9973ad69;
-  width: 277px;
-}
-
-.info h2 {
-  padding-top: 0;
-  margin-top: 0;
-  text-align: center;
-}
-
-div * {
-  padding-top: 0;
-  margin-top: 0;
-}
-
-.network {
-  margin-top: 95px; /* Align with .info container */
-  padding: 15px;
-  display: inline-block;
-  text-decoration: none;
-  background-color: #9973ad69;
-  border-radius: 17px; 
-  width: 207px;
-  position: absolute; /* Use absolute positioning */
-  top: 95px; /* Align to the top */
-  right: 103px; /* Align to the right */
-}
-
-.fun {
-  margin-top: 20px; /* Adjusted margin-top to position .fun below .info */
-  padding-top: 5px;
-  padding-bottom: 5px;
-  display: block; /* Changed from inline-block to block */
-  text-decoration: none;
-  background-color: #9973ad69;
-  border-radius: 17px; 
-  position: relative;
-  margin-left: 168px; /* Added to align with .info */
-  width: 274px;
-}
-
-.fun h2 {
-  margin-top: 0;
-  padding-top: 0;
-  text-align: center;
+.search-nav img {
+    height: 5vh;
+    width: auto;
 }
