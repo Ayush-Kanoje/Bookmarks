@@ -39,7 +39,6 @@
                 const title = document.getElementById('title').value.trim();
                 const url = document.getElementById('url').value.trim();
                 const category = document.getElementById('category').value;
-                const visitDate = document.getElementById('visitDate').value;
 
                 // Validate required fields
                 if (!title || !url) {
@@ -53,7 +52,6 @@
                     title,
                     url,
                     category,
-                    dateAdded: new Date().toLocaleDateString(),
             
                 };
 
@@ -86,10 +84,8 @@
                 
                 if (category === 'all') {
                     filteredBookmarks = this.bookmarks;
-                } else if (category === 'future') {
-                    // Show only bookmarks with future visit dates
-                    filteredBookmarks = this.bookmarks.filter(bookmark => bookmark.isFuture);
-                } else {
+                } 
+                else {
                     filteredBookmarks = this.bookmarks.filter(bookmark => bookmark.category === category);
                 }
 
@@ -144,7 +140,7 @@
                 const categoryIcons = {
                     Productivity: '🚀', Development: '💻', Design: '🎨',
                     Learning: '📚', Entertainment: '🎬', News: '📰',
-                    Shopping: '🛒', Social: '👥', Tools: '🔧', Other: '📂'
+                    Shopping: '🛒', Social: '👥', AI: '🤖', Other: '📂'
                 };
 
                 section.innerHTML = `
