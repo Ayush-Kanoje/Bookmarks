@@ -10,14 +10,14 @@
             color: #e0e6ed;
             min-height: 100vh;
             overflow-x: hidden;
+            margin-top: 25px;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        :root {
 
+            
+        }
+        
         header {
             text-align: center;
             margin-bottom: 40px;
@@ -27,6 +27,12 @@
             padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         h1 {
@@ -117,6 +123,10 @@
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
+        }
+
+        #bookmarkForm {
+            background-color: #16213e;
         }
 
         .category-filter {

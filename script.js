@@ -54,8 +54,7 @@
                     url,
                     category,
                     dateAdded: new Date().toLocaleDateString(),
-                    visitDate: visitDate || null,
-                    isFuture: visitDate && new Date(visitDate) > new Date()
+            
                 };
 
                 // Add to our collection and update the display
@@ -143,9 +142,9 @@
 
                 // Map categories to appropriate icons for visual appeal
                 const categoryIcons = {
-                    productivity: '🚀', development: '💻', design: '🎨',
-                    learning: '📚', entertainment: '🎬', news: '📰',
-                    shopping: '🛒', social: '👥', tools: '🔧', other: '📂'
+                    Productivity: '🚀', Development: '💻', Design: '🎨',
+                    Learning: '📚', Entertainment: '🎬', News: '📰',
+                    Shopping: '🛒', Social: '👥', Tools: '🔧', Other: '📂'
                 };
 
                 section.innerHTML = `
@@ -242,28 +241,16 @@
                         title: "OpenAI ChatGPT",
                         url: "https://chat.openai.com",
                         category: "productivity",
-                        dateAdded: "2025-01-15",
-                        visitDate: null,
-                        isFuture: false
+                    
                     },
                     {
                         id: 2,
                         title: "GitHub",
                         url: "https://github.com",
                         category: "development",
-                        dateAdded: "2025-01-16",
-                        visitDate: null,
-                        isFuture: false
+                      
                     },
-                    {
-                        id: 3,
-                        title: "New Framework Release",
-                        url: "https://example.com/new-framework",
-                        category: "development",
-                        dateAdded: new Date().toLocaleDateString(),
-                        visitDate: "2025-08-15",
-                        isFuture: true
-                    }
+                 
                 ];
 
                 // Build category set from loaded bookmarks
