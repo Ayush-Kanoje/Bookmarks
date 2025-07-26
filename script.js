@@ -382,7 +382,47 @@ class BookmarkManager {
                 category: "Development",
             },  
 
-            
+            {
+                id: 13,
+                title: "Stack Overflow",
+                url: "https://stackoverflow.com/",
+                category: "Development",
+            },
+
+            {
+                id: 14,
+                title: "MDN Web Docs",
+                url: "https://developer.mozilla.org/en-US/",
+                category: "Learning",
+            },
+
+            {
+                id: 15,
+                title: "CSS Tricks",
+                url: "https://css-tricks.com/",
+                category: "Development",
+            },
+
+            {
+                id: 16,
+                title: "FreeCodeCamp",
+                url: "https://www.freecodecamp.org/",
+                category: "Learning",
+            },
+
+            {
+                id: 17,
+                title: "GFG",
+                url: "https://www.geeksforgeeks.org/",
+                category: "Learning",
+            },
+
+           {
+            id: 18,
+            title: "FireBase",
+            url: "https://firebase.google.com/",
+            category: "Development",
+           }
             
         ];
 
