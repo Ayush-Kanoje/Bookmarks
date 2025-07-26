@@ -367,14 +367,23 @@ class BookmarkManager {
                 url: "https://www.figma.com/",
                 category: "Design",
             },
+            
             {
                 id: 11,
                 title: "Google",
                 url: "https://www.google.com/",
                 category: "Productivity",
             },
+            
+            {
+                id: 12,
+                title: "Vercel",
+                url: "https://vercel.com/ayush-kanojes-projects",
+                category: "Development",
+            },  
 
-        
+            
+            
         ];
 
         // Build category set from loaded bookmarks
