@@ -323,7 +323,7 @@ class BookmarkManager {
                 id:4,
                 title: "CodeCrafters",
                 url: "https://app.codecrafters.io/catalog",
-                category: "development",
+                category: "Development",
             },
 
             {
@@ -338,7 +338,43 @@ class BookmarkManager {
                 title: "Claude AI",
                 url: "https://claude.ai/new",
                 category: "AI",
-            }
+            },
+
+            {
+                id: 7,
+                title: "Humanize AI",
+                url: "https://aihumanize.io/",
+                category: "AI",
+            },
+
+            {
+                id: 8,
+                title: "Quora",
+                url: "https://www.quora.com/", 
+                category: "Productivity",
+            },
+
+            {
+                id: 9,
+                title: "Flat-Icon",
+                url: "https://www.flaticon.com/",
+                category: "Design",
+            },
+
+            {
+                id: 10,
+                title: "Figma",
+                url: "https://www.figma.com/",
+                category: "Design",
+            },
+            {
+                id: 11,
+                title: "Google",
+                url: "https://www.google.com/",
+                category: "Productivity",
+            },
+
+        
         ];
 
         // Build category set from loaded bookmarks
