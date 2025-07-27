@@ -422,6 +422,13 @@ class BookmarkManager {
             title: "FireBase",
             url: "https://firebase.google.com/",
             category: "Development",
+           },
+
+           {
+            id: 19,
+            title:"HiAnime",
+            url: "https://hianime.tv/",
+            category: "Entertainment",
            }
             
         ];
