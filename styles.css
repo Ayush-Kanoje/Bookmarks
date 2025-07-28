@@ -61,9 +61,9 @@ body {
     background-color: #1f2937;
     border: 1px solid #4b5563;
     color: #f9fafb;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 0.5rem 1rem;
-    width: 250px;
+    width: 300px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -84,11 +84,11 @@ body {
 /* Individual Floating Icon Styling */
 .web-icon {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    background-color: rgba(55, 65, 81, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    /* border-radius: 20px; */
+    /* background-color: rgba(55, 65, 81, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,3 +125,45 @@ body {
     border-radius: 6px;
     text-transform: capitalize;
 }
+
+
+/* Add at the end of your styles.css */
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .search-input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #icon-container {
+        padding-top: 120px; /* More space for stacked header */
+    }
+
+    .web-icon {
+        width: 42px;
+        height: 42px;
+        padding: 4px;
+    }
+
+    .icon-favicon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .header-title {
+        font-size: 1.1rem;
+    }
+
+    .icon-count-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        }
+
+    }

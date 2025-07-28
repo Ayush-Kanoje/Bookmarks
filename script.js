@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 14,
             title: "Firebase",
             url: "https://firebase.google.com/",
-            category:"development",
+            category: "development",
           },
           {
             id: 15,
@@ -146,33 +146,25 @@ document.addEventListener("DOMContentLoaded", () => {
             url: "https://css-tricks.com/",
             category: "development",
           },
-            {
-              id: 16,
-              title: "Humanize Ai",
-              url: "https://humanize.ai/",
-              category: "AI",
-            },
-            
-            {
-              id: 17,
-              title: "MDN",
-              url: "https://developer.mozilla.org/",
-              category: "development",
-            },
-            {
-              id: 18,
-              title: "MDN",
-              url: "https://developer.mozilla.org/",
-              category: "development",
-            },
-            {
-              id: 19,
-              title: "Claude AI",
-              url: "https://claude.ai/",
-              category: "AI",
-            },
+          {
+            id: 16,
+            title: "Humanize Ai",
+            url: "https://humanize.ai/",
+            category: "AI",
+          },
 
-
+          {
+            id: 18,
+            title: "MDN",
+            url: "https://developer.mozilla.org/",
+            category: "development",
+          },
+          {
+            id: 19,
+            title: "Claude AI",
+            url: "https://claude.ai/",
+            category: "AI",
+          },
         ];
         localStorage.setItem("bookmarks", JSON.stringify(this.allBookmarks));
       }
