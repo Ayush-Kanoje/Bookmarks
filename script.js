@@ -152,15 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
             url: "https://humanize.ai/",
             category: "AI",
           },
-
           {
-            id: 18,
-            title: "MDN",
-            url: "https://developer.mozilla.org/",
-            category: "development",
-          },
-          {
-            id: 19,
+            id: 17,
             title: "Claude AI",
             url: "https://claude.ai/",
             category: "AI",
