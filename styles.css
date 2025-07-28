@@ -4,6 +4,60 @@
   box-sizing: border-box;
 }
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+/* Page loading animation */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-icon {
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.loader-text {
+  color: #e0e6ed;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2s ease-in-out infinite;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
@@ -11,6 +65,94 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   margin-top: 25px;
+  /* Enhanced smooth scrolling with custom scrollbar */
+  scroll-behavior: smooth;
+  /* Initial page load animation */
+  opacity: 0;
+  animation: pageReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+/* Page reveal animation */
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #667eea rgba(255, 255, 255, 0.05);
 }
 
 :root {
@@ -26,6 +168,8 @@ header {
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* Smooth scroll anchor */
+  scroll-margin-top: 20px;
 }
 
 .container {
@@ -58,6 +202,8 @@ h1 {
   margin-bottom: 40px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  /* Smooth scroll anchor */
+  scroll-margin-top: 20px;
 }
 
 .form-group {
@@ -89,7 +235,7 @@ select {
   background: rgba(255, 255, 255, 0.1);
   color: #e0e6ed;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 input:focus,
@@ -98,6 +244,7 @@ select:focus {
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
   background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 button {
@@ -109,7 +256,7 @@ button {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
@@ -118,12 +265,19 @@ button:hover {
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
+button:active {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
 .filter-section {
   margin-bottom: 30px;
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   align-items: center;
+  /* Smooth scroll anchor */
+  scroll-margin-top: 20px;
 }
 
 #bookmarkForm {
@@ -141,7 +295,7 @@ button:hover {
   padding: 8px 16px;
   color: #e0e6ed;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 5px;
 }
 
@@ -149,7 +303,40 @@ button:hover {
 .category-filter.active {
   background: linear-gradient(45deg, #667eea, #764ba2);
   border-color: transparent;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Smooth scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  z-index: 1000;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 }
 
 /* Category-based bookmark styling */
@@ -168,9 +355,11 @@ button:hover {
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  /* Smooth scroll anchor */
+  scroll-margin-top: 30px;
 }
 
 .category-section::before {
@@ -185,8 +374,8 @@ button:hover {
 }
 
 .category-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
   border-color: rgba(102, 126, 234, 0.3);
 }
 
@@ -210,12 +399,12 @@ button:hover {
   font-size: 1.8rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .category-section:hover .category-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
 }
 
 .category-info {
@@ -255,7 +444,7 @@ button:hover {
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -263,13 +452,76 @@ button:hover {
   text-align: center;
   min-height: 160px;
   cursor: pointer;
+  /* Smooth scroll anchor */
+  scroll-margin-top: 20px;
+  /* Web opening animation preparation */
+  overflow: hidden;
+}
+
+.bookmark-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.bookmark-card.opening::before {
+  left: 100%;
+}
+
+.bookmark-card.opening {
+  animation: webOpening 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: #667eea;
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
+}
+
+@keyframes webOpening {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+    border-color: #667eea;
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+  }
+  60% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .bookmark-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   border-color: rgba(102, 126, 234, 0.5);
   background: rgba(255, 255, 255, 0.12);
+}
+
+/* Link opening indicator */
+.bookmark-card .opening-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 3px solid #667eea;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spin 1s linear infinite;
+  z-index: 2;
+}
+
+.bookmark-card.opening .opening-indicator {
+  opacity: 1;
 }
 
 .bookmark-delete-btn {
@@ -288,22 +540,22 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
   z-index: 10;
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.8) rotate(-10deg);
 }
 
 .bookmark-card:hover .bookmark-delete-btn {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
 }
 
 .bookmark-delete-btn:hover {
   background: rgba(255, 82, 82, 0.9);
-  transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(255, 82, 82, 0.4);
 }
 
 .bookmark-favicon {
@@ -314,13 +566,13 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.1);
   padding: 6px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   object-fit: contain;
 }
 
 .bookmark-card:hover .bookmark-favicon {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.2) rotate(-3deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .bookmark-title {
@@ -331,7 +583,7 @@ button:hover {
   margin-bottom: 10px;
   display: block;
   line-height: 1.4;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -344,7 +596,8 @@ button:hover {
 
 .bookmark-title:hover {
   color: #667eea;
-  text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+  text-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-1px);
 }
 
 .bookmark-domain {
@@ -355,7 +608,7 @@ button:hover {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: auto;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
 }
 
@@ -363,6 +616,7 @@ button:hover {
   background: rgba(102, 126, 234, 0.2);
   border-color: rgba(102, 126, 234, 0.3);
   color: #c9d1d9;
+  transform: translateY(-2px);
 }
 
 /* Empty state for categories */
@@ -374,6 +628,12 @@ button:hover {
   border-radius: 20px;
   border: 2px dashed rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.empty-state:hover {
+  border-color: rgba(102, 126, 234, 0.3);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .empty-state h3 {
@@ -393,23 +653,15 @@ button:hover {
   padding: 15px;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
 
 .bookmark-item:hover {
   background: rgba(255, 255, 255, 0.12);
-  transform: translateX(5px);
+  transform: translateX(8px) translateY(-2px);
   border-color: rgba(102, 126, 234, 0.5);
-}
-
-.bookmark-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #e0e6ed;
-  margin-bottom: 8px;
-  text-decoration: none;
-  display: block;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .bookmark-url {
@@ -418,10 +670,12 @@ button:hover {
   word-break: break-all;
   margin-bottom: 8px;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .bookmark-url:hover {
   text-decoration: underline;
+  color: #5a6fd8;
 }
 
 .bookmark-meta {
@@ -440,13 +694,14 @@ button:hover {
   border-radius: 6px;
   font-size: 0.8rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-left: auto;
 }
 
 .bookmark-meta .delete-btn:hover {
   background: linear-gradient(45deg, #ff5252, #d32f2f);
-  transform: scale(1.05);
+  transform: scale(1.08) translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.3);
 }
 
 .stats {
@@ -464,6 +719,13 @@ button:hover {
   text-align: center;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 .stat-number {
@@ -484,29 +746,28 @@ button:hover {
 @keyframes pulse {
   0% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
     opacity: 0.7;
+    transform: scale(1.02);
   }
   100% {
     opacity: 1;
+    transform: scale(1);
   }
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #a0a6b8;
-  grid-column: 1 / -1;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
 }
 
 .empty-icon {
   font-size: 4rem;
   margin-bottom: 20px;
   opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.empty-state:hover .empty-icon {
+  opacity: 0.7;
+  transform: scale(1.1);
 }
 
 /* Loading animation for favicons */
@@ -566,6 +827,13 @@ button:hover {
     width: 36px;
     height: 36px;
   }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -607,20 +875,120 @@ button:hover {
   }
 }
 
-/* Animation for category sections */
+/* Enhanced animations for category sections */
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Parallax scrolling effect */
+@keyframes parallaxFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.parallax-element {
+  animation: parallaxFloat 6s ease-in-out infinite;
+}
+
+.parallax-element:nth-child(even) {
+  animation-delay: -3s;
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  z-index: 1000;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Category section entrance animations */
 .category-section {
-  animation: slideInUp 0.6s ease-out;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-section:nth-child(odd) {
+  animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-section:nth-child(even) {
+  animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .category-section:nth-child(2) {
@@ -635,7 +1003,106 @@ button:hover {
   animation-delay: 0.3s;
 }
 
+.category-section:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Bookmark card entrance animation */
+.bookmark-card {
+  animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bookmark-card:nth-child(2) {
+  animation: fadeInRotate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.1s;
+}
+
+.bookmark-card:nth-child(3) {
+  animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.2s;
+}
+
+.bookmark-card:nth-child(4) {
+  animation: fadeInRotate 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.3s;
+}
+
+/* Click ripple effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.3);
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Staggered list animations */
+.stagger-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Loading animation for favicons */
 .bookmark-favicon[src*="google.com"] {
   animation: pulse 2s infinite;
+}
+
+/* Smooth focus transitions */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth page transitions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-duration: 0.3s;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
