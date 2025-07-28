@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookMark Pro - Advanced Bookmark Manager</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>📚 BookMark Pro</h1>
-            <p class="subtitle">Your Advanced Bookmark Management System</p>
-            
-            <form class="add-form" id="bookmarkForm">
-                <div class="form-group">
-                    <div class="input-wrapper">
-                        <label for="title">Bookmark Title</label>
-                        <input type="text" id="title" placeholder="Enter bookmark title" required>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="url">Website URL</label>
-                        <input type="url" id="url" placeholder="https://example.com" required>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="category">Category</label>
-                        <select id="category">
-                            <option value="productivity">🚀 Productivity</option>
-                            <option value="development">💻 Development</option>
-                            <option value="design">🎨 Design</option>
-                            <option value="learning">📚 Learning</option>
-                            <option value="entertainment">🎬 Entertainment</option>
-                            <option value="news">📰 News</option>
-                            <option value="shopping">🛒 Shopping</option>
-                            <option value="social">👥 Social</option>
-                            <option value="tools">🤖 AI</option>
-                            <option value="other">📂 Other</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit">Add Bookmark</button>
-                </div>
-            </form>
+      <header>
+        <h1>📚 BookMark Pro</h1>
+        <p class="subtitle">Your Advanced Bookmark Management System</p>
 
-            <div class="stats" id="stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="totalBookmarks">0</div>
-                    <div class="stat-label">Total Bookmarks</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="categoriesCount">0</div>
-                    <div class="stat-label">Categories</div>
-                </div>
-               
+        <form class="add-form" id="bookmarkForm">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <label for="title">Bookmark Title</label>
+              <input
+                type="text"
+                id="title"
+                placeholder="Enter bookmark title"
+                required
+              />
             </div>
-        </header>
-
-        <div class="filter-section">
-            <span style="color: #a0a6b8; font-weight: 600;">Filter by category:</span>
-            <div class="category-filter active" data-category="all">All Categories</div>
-        </div>
-
-        <div class="bookmarks-grid" id="bookmarksContainer">
-            <div class="empty-state">
-                <div class="empty-icon">🔖</div>
-                <h3>No bookmarks yet!</h3>
-                <p>Add your first bookmark using the form above.</p>
+            <div class="input-wrapper">
+              <label for="url">Website URL</label>
+              <input
+                type="url"
+                id="url"
+                placeholder="https://example.com"
+                required
+              />
             </div>
+            <div class="input-wrapper">
+              <label for="category">Category</label>
+              <select id="category">
+                <option value="productivity">🚀 Productivity</option>
+                <option value="development">💻 Development</option>
+                <option value="design">🎨 Design</option>
+                <option value="learning">📚 Learning</option>
+                <option value="entertainment">🎬 Entertainment</option>
+                <option value="news">📰 News</option>
+                <option value="shopping">🛒 Shopping</option>
+                <option value="social">👥 Social</option>
+                <option value="tools">🤖 AI</option>
+                <option value="other">📂 Other</option>
+              </select>
+            </div>
+
+            <button type="submit">Add Bookmark</button>
+          </div>
+        </form>
+
+        <div class="stats" id="stats">
+          <div class="stat-item">
+            <div class="stat-number" id="totalBookmarks">0</div>
+            <div class="stat-label">Total Bookmarks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="categoriesCount">0</div>
+            <div class="stat-label">Categories</div>
+          </div>
         </div>
+      </header>
+
+      <div class="filter-section">
+        <span style="color: #a0a6b8; font-weight: 600"
+          >Filter by category:</span
+        >
+        <div class="category-filter active" data-category="all">
+          All Categories
+        </div>
+      </div>
+
+      <div class="bookmarks-grid" id="bookmarksContainer">
+        <div class="empty-state">
+          <div class="empty-icon">🔖</div>
+          <h3>No bookmarks yet!</h3>
+          <p>Add your first bookmark using the form above.</p>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
