@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             id: 16,
             title: "Humanize Ai",
-            url: "https://humanize.ai/",
+            url: "https://aihumanize.io/",
             category: "AI",
           },
           {
