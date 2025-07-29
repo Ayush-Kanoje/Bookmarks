@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             url: "https://css-tricks.com/",
             category: "development",
           },
-      
+
           {
             id: 16,
             title: "Claude AI",
@@ -162,10 +162,22 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "ai",
           },
 
-              {
+          {
             id: 17,
             title: "Humanize Ai",
             url: "https://aihumanize.io/",
+            category: "ai",
+          },
+          {
+            id: 18,
+            title: "LinkedIn",
+            url: "https://www.linkedin.com/in/ayushkanoje11/",
+            category: "ai",
+          },
+          {
+            id: 19,
+            title: "Pinterest",
+            url: "https://in.pinterest.com/",
             category: "ai",
           },
         ];
