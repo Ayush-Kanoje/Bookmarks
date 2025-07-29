@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Floating Bookmarks</title>
-    <link rel="stylesheet" href="styles.css" />
-     <link rel="icon" type="image/png" href="title-icon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <header class="app-header">
-      <div class="header-content">
-        <h1 class="header-title">
-          Bookmarks
-          <span id="icon-count" class="icon-count-badge">0</span>
-        </h1>
-        <div class="search-wrapper">
-          <input
-            type="text"
-            id="search-bar"
-            placeholder="Search by name..."
-            class="search-input"
-          />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">🔖 Bookmarks</h1>
+        <div class="controls">
+            <input type="text" class="search-bar" placeholder="Search bookmarks..." id="searchBar">
+            <button class="add-bookmark-btn" onclick="openAddModal()">Add Bookmark</button>
+            <div class="bookmark-counter" id="bookmarkCounter">0</div>
         </div>
-      </div>
-    </header>
+    </div>
 
-    <div id="icon-container"></div>
+    <div class="bookmark-container" id="bookmarkContainer"></div>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Add Bookmark Modal -->
+    <div class="modal" id="addModal">
+        <div class="modal-content">
+            <h3>Add New Bookmark</h3>
+            <div class="form-group">
+                <label for="bookmarkTitle">Title:</label>
+                <input type="text" id="bookmarkTitle" placeholder="Enter bookmark title">
+            </div>
+            <div class="form-group">
+                <label for="bookmarkUrl">URL:</label>
+                <input type="text" id="bookmarkUrl" placeholder="https://example.com">
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="addBookmark()">Add Bookmark</button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+<script src="script.js"></script>
 </html>
