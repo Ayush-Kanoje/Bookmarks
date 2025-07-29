@@ -68,19 +68,19 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 1,
             title: "ChatGPT",
             url: "https://chat.openai.com",
-            category: "AI",
+            category: "ai",
           },
           {
             id: 2,
             title: "Perplexity AI",
             url: "https://www.perplexity.ai/",
-            category: "AI",
+            category: "ai",
           },
           {
             id: 3,
             title: "Gemini",
             url: "https://gemini.google.com/",
-            category: "AI",
+            category: "ai",
           },
           {
             id: 4,
@@ -159,7 +159,14 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 16,
             title: "Claude AI",
             url: "https://claude.ai/",
-            category: "AI",
+            category: "ai",
+          },
+
+              {
+            id: 17,
+            title: "Humanize Ai",
+            url: "https://aihumanize.io/",
+            category: "ai",
           },
         ];
         localStorage.setItem("bookmarks", JSON.stringify(this.allBookmarks));
