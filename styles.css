@@ -126,9 +126,8 @@ body {
 
 /* Show category text only when a search is active */
 #icon-container.is-searching .icon-category {
-    display: block;
+  display: block;
 }
-
 
 /* Responsive adjustments for mobile devices */
 @media (max-width: 600px) {

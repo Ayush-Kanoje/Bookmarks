@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Floating Bookmarks</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="app-header">
-        <div class="header-content">
-            <h1 class="header-title">
-                Bookmarks
-                <span id="icon-count" class="icon-count-badge">0</span>
-            </h1>
-            <div class="search-wrapper">
-                <input type="text" id="search-bar" placeholder="Search by name..." class="search-input" />
-            </div>
+      <div class="header-content">
+        <h1 class="header-title">
+          Bookmarks
+          <span id="icon-count" class="icon-count-badge">0</span>
+        </h1>
+        <div class="search-wrapper">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Search by name..."
+            class="search-input"
+          />
         </div>
+      </div>
     </header>
 
     <div id="icon-container"></div>
-    
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

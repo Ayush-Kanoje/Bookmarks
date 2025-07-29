@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // Live search functionality
       this.searchBar.addEventListener("input", (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        
+
         // Add or remove class to show/hide category text
         if (searchTerm.length > 0) {
-            this.container.classList.add("is-searching");
+          this.container.classList.add("is-searching");
         } else {
-            this.container.classList.remove("is-searching");
+          this.container.classList.remove("is-searching");
         }
-        
+
         const filteredBookmarks = this.allBookmarks.filter((bookmark) =>
           bookmark.title.toLowerCase().includes(searchTerm)
         );
@@ -195,19 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
           vy: (Math.random() - 0.5) * 2, // Vertical velocity
           isPaused: false, // State to track if the icon is paused by hover
         };
-        
+
         // Add event listeners to the icon element to pause/resume its movement
-        iconEl.addEventListener('mouseenter', () => {
-            iconData.isPaused = true;
+        iconEl.addEventListener("mouseenter", () => {
+          iconData.isPaused = true;
         });
-        
-        iconEl.addEventListener('mouseleave', () => {
-            iconData.isPaused = false;
+
+        iconEl.addEventListener("mouseleave", () => {
+          iconData.isPaused = false;
         });
 
         this.icons.push(iconData);
       });
-      
+
       this.startAnimation(); // Start the animation loop with the new set of icons
     }
 
@@ -248,17 +248,16 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       animate();
     }
-    
+
     /**
      * Stops the animation loop completely.
      */
     stopAnimation() {
-        if (this.animationFrameId) {
-            cancelAnimationFrame(this.animationFrameId);
-            this.animationFrameId = null;
-        }
+      if (this.animationFrameId) {
+        cancelAnimationFrame(this.animationFrameId);
+        this.animationFrameId = null;
+      }
     }
-
 
     /**
      * Updates the position of each icon in the animation frame.
@@ -272,16 +271,16 @@ document.addEventListener("DOMContentLoaded", () => {
       this.icons.forEach((icon) => {
         // Only update position if the icon is not paused by a hover
         if (!icon.isPaused) {
-            icon.x += icon.vx;
-            icon.y += icon.vy;
+          icon.x += icon.vx;
+          icon.y += icon.vy;
 
-            // Wall collision detection (bounce)
-            if (icon.x <= 0 || icon.x >= containerWidth - iconSize) {
-              icon.vx *= -1; // Reverse horizontal velocity
-            }
-            if (icon.y <= 0 || icon.y >= containerHeight - iconSize) {
-              icon.vy *= -1; // Reverse vertical velocity
-            }
+          // Wall collision detection (bounce)
+          if (icon.x <= 0 || icon.x >= containerWidth - iconSize) {
+            icon.vx *= -1; // Reverse horizontal velocity
+          }
+          if (icon.y <= 0 || icon.y >= containerHeight - iconSize) {
+            icon.vy *= -1; // Reverse vertical velocity
+          }
         }
 
         // Ensure icons don't go out of bounds (important for paused icons near edges on resize)
