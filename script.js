@@ -172,13 +172,13 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 18,
             title: "LinkedIn",
             url: "https://www.linkedin.com/in/ayushkanoje11/",
-            category: "ai",
+            category: "social",
           },
           {
             id: 19,
             title: "Pinterest",
             url: "https://in.pinterest.com/",
-            category: "ai",
+            category: "social",
           },
         ];
         localStorage.setItem("bookmarks", JSON.stringify(this.allBookmarks));
