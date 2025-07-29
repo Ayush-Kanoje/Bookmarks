@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.loadBookmarks();
       this.setupEventListeners();
       this.renderIcons(this.allBookmarks);
-      this.startAnimation();
+      this.startAnimation(); // Animation now starts on load
     }
 
     /**
@@ -33,6 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // Live search functionality
       this.searchBar.addEventListener("input", (e) => {
         const searchTerm = e.target.value.toLowerCase();
+        
+        // Add or remove class to show/hide category text
+        if (searchTerm.length > 0) {
+            this.container.classList.add("is-searching");
+        } else {
+            this.container.classList.remove("is-searching");
+        }
+        
         const filteredBookmarks = this.allBookmarks.filter((bookmark) =>
           bookmark.title.toLowerCase().includes(searchTerm)
         );
@@ -168,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * @param {Array} bookmarks - The list of bookmarks to render as icons.
      */
     renderIcons(bookmarks) {
+      this.stopAnimation(); // Stop previous animation loop before re-rendering
       this.container.innerHTML = ""; // Clear existing icons
       this.icons = []; // Reset the icons array
 
@@ -177,15 +186,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const iconEl = this.createIconElement(bookmark);
         this.container.appendChild(iconEl);
 
-        // Initialize physics properties for each icon
-        this.icons.push({
+        // Create the data object for the icon's physics and state
+        const iconData = {
           el: iconEl,
           x: Math.random() * (this.container.clientWidth - 80),
           y: Math.random() * (this.container.clientHeight - 80),
           vx: (Math.random() - 0.5) * 2, // Horizontal velocity
           vy: (Math.random() - 0.5) * 2, // Vertical velocity
+          isPaused: false, // State to track if the icon is paused by hover
+        };
+        
+        // Add event listeners to the icon element to pause/resume its movement
+        iconEl.addEventListener('mouseenter', () => {
+            iconData.isPaused = true;
         });
+        
+        iconEl.addEventListener('mouseleave', () => {
+            iconData.isPaused = false;
+        });
+
+        this.icons.push(iconData);
       });
+      
+      this.startAnimation(); // Start the animation loop with the new set of icons
     }
 
     /**
@@ -225,6 +248,17 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       animate();
     }
+    
+    /**
+     * Stops the animation loop completely.
+     */
+    stopAnimation() {
+        if (this.animationFrameId) {
+            cancelAnimationFrame(this.animationFrameId);
+            this.animationFrameId = null;
+        }
+    }
+
 
     /**
      * Updates the position of each icon in the animation frame.
@@ -233,23 +267,24 @@ document.addEventListener("DOMContentLoaded", () => {
     updateIconPositions() {
       const containerWidth = this.container.clientWidth;
       const containerHeight = this.container.clientHeight;
-      const headerHeight = 80; // Approximate height of the header
       const iconSize = 80;
 
       this.icons.forEach((icon) => {
-        // Update position
-        icon.x += icon.vx;
-        icon.y += icon.vy;
+        // Only update position if the icon is not paused by a hover
+        if (!icon.isPaused) {
+            icon.x += icon.vx;
+            icon.y += icon.vy;
 
-        // Wall collision detection (bounce)
-        if (icon.x <= 0 || icon.x >= containerWidth - iconSize) {
-          icon.vx *= -1; // Reverse horizontal velocity
-        }
-        if (icon.y <= 0 || icon.y >= containerHeight - iconSize) {
-          icon.vy *= -1; // Reverse vertical velocity
+            // Wall collision detection (bounce)
+            if (icon.x <= 0 || icon.x >= containerWidth - iconSize) {
+              icon.vx *= -1; // Reverse horizontal velocity
+            }
+            if (icon.y <= 0 || icon.y >= containerHeight - iconSize) {
+              icon.vy *= -1; // Reverse vertical velocity
+            }
         }
 
-        // Ensure icons don't go out of bounds
+        // Ensure icons don't go out of bounds (important for paused icons near edges on resize)
         icon.x = Math.max(0, Math.min(icon.x, containerWidth - iconSize));
         icon.y = Math.max(0, Math.min(icon.y, containerHeight - iconSize));
 

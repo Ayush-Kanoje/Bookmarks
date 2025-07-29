@@ -86,9 +86,6 @@ body {
   position: absolute;
   width: 50px;
   height: 50px;
-  /* border-radius: 20px; */
-  /* background-color: rgba(55, 65, 81, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,9 +121,14 @@ body {
   padding: 2px 6px;
   border-radius: 6px;
   text-transform: capitalize;
+  display: none; /* Hide category text by default */
 }
 
-/* Add at the end of your styles.css */
+/* Show category text only when a search is active */
+#icon-container.is-searching .icon-category {
+    display: block;
+}
+
 
 /* Responsive adjustments for mobile devices */
 @media (max-width: 600px) {
