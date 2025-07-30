@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookmarks</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>Floating Bookmarks</title>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="header">
-        <h1 class="title">🔖 Bookmarks</h1>
+        <h1 class="title">🌟 Floating Bookmarks</h1>
         <div class="controls">
-            <input type="text" class="search-bar" placeholder="Search bookmarks..." id="searchBar">
-            <button class="add-bookmark-btn" onclick="openAddModal()">Add Bookmark</button>
-            <div class="bookmark-counter" id="bookmarkCounter">0</div>
+            <input type="text" class="search-bar" placeholder="Search your universe..." id="searchBar">
+            <button class="add-bookmark-btn" onclick="openAddModal()">✨ Add Bookmark</button>
+            <button class="share-btn" onclick="openShareModal()">🔗 Share</button>
+            <button class="import-btn" onclick="openImportModal()">📥 Import</button>
+            <div class="bookmark-counter" id="bookmarkCounter">0 Bookmarks</div>
         </div>
     </div>
 
@@ -21,7 +23,7 @@
     <!-- Add Bookmark Modal -->
     <div class="modal" id="addModal">
         <div class="modal-content">
-            <h3>Add New Bookmark</h3>
+            <h3>🚀 Add New Bookmark</h3>
             <div class="form-group">
                 <label for="bookmarkTitle">Title:</label>
                 <input type="text" id="bookmarkTitle" placeholder="Enter bookmark title">
@@ -37,8 +39,63 @@
         </div>
     </div>
 
-    
-</body>
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+        <div class="modal-content">
+            <h3>🔗 Share Your Bookmarks</h3>
+            
+            <div class="bookmark-stats">
+                <h4>📊 Collection Stats</h4>
+                <p id="shareStats">Total bookmarks: 0</p>
+                <p id="shareCreated">Created: Today</p>
+            </div>
 
-<script src="script.js"></script>
+            <div class="share-options">
+                <button class="share-option-btn active" onclick="setShareFormat('json')" id="jsonBtn">JSON Format</button>
+                <button class="share-option-btn" onclick="setShareFormat('html')" id="htmlBtn">HTML Export</button>
+                <button class="share-option-btn" onclick="setShareFormat('text')" id="textBtn">Plain Text</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="shareCode">Share Code (Copy and send to others):</label>
+                <textarea class="share-code-area" id="shareCode" readonly></textarea>
+                <button class="copy-btn" onclick="copyShareCode()" id="copyBtn">📋 Copy to Clipboard</button>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="closeShareModal()">Close</button>
+                <button class="btn btn-primary" onclick="downloadBookmarks()">💾 Download File</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Modal -->
+    <div class="modal" id="importModal">
+        <div class="modal-content">
+            <h3>📥 Import Bookmarks</h3>
+            
+            <div class="form-group">
+                <label for="importText">Paste shared bookmarks or upload file:</label>
+                <textarea class="import-text-area" id="importText" placeholder="Paste the shared bookmark code here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="importFile">Or choose file:</label>
+                <input type="file" id="importFile" accept=".json,.html,.txt" onchange="handleFileImport(event)">
+            </div>
+            
+            <div class="import-preview" id="importPreview" style="display: none;">
+                <h4 style="color: #10b981; margin: 15px 0 10px 0;">Preview:</h4>
+                <div id="previewContent" style="max-height: 200px; overflow-y: auto; background: rgba(31, 41, 55, 0.6); padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);"></div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" onclick="closeImportModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="importBookmarks()" id="importBtn" disabled>Import Bookmarks</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
