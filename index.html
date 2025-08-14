@@ -42,6 +42,22 @@
             background-color: var(--card-dark);
             border: 1px solid var(--border-dark);
         }
+
+        html.dark header{
+
+            background-color:black;
+        }
+
+        html.dark header h1{
+            color: var(--text-dark);
+        }
+
+        html.dark .searchInput{
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            color: var(--text-light);
+        }
+
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
@@ -87,9 +103,7 @@
             background-color: rgba(0,0,0,0.5);
             transition: opacity 0.3s ease;
         }
-        .searchInput{
-            color: var(--text-light);
-        }
+      
     </style>
 </head>
 <body class="font-sans antialiased">
